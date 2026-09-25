@@ -1,4 +1,5 @@
 import type { content } from "./content";
+import type { SendResult } from "./sendEmail";
 
 export type Activity =
   | "cinema"
@@ -15,6 +16,11 @@ export interface DateFormData {
   time: string;
   name: string;
   instagram: string;
+}
+
+export interface EmailSendRecord {
+  key: string;
+  status: SendResult;
 }
 
 export const ACTIVITY_IDS: Activity[] = [

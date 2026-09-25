@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo } from "react";
 import { getActivityLabel } from "@/lib/types";
-import type { DateFormData } from "@/lib/types";
+import type { DateFormData, EmailSendRecord } from "@/lib/types";
 import { sendEmail } from "@/lib/sendEmail";
 import { interpolate } from "@/lib/content";
 import { useLanguage } from "@/lib/LanguageContext";
@@ -10,7 +10,6 @@ import ConfettiHearts from "@/components/ui/ConfettiHearts";
 import Countdown from "@/components/ui/Countdown";
 import { combineDateAndTime } from "@/lib/time";
 import { buildICS, downloadICS } from "@/lib/ics";
-import type { EmailSendRecord } from "@/components/DateInvitation";
 
 interface Props {
   data: DateFormData;

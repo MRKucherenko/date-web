@@ -1,3 +1,5 @@
+import { DATE_DURATION_MINUTES } from "./timeRules";
+
 function pad(n: number): string {
   return n.toString().padStart(2, "0");
 }
@@ -26,7 +28,12 @@ interface BuildICSParams {
   description?: string;
 }
 
-export function buildICS({ title, start, durationMinutes = 120, description = "" }: BuildICSParams): string {
+export function buildICS({
+  title,
+  start,
+  durationMinutes = DATE_DURATION_MINUTES,
+  description = "",
+}: BuildICSParams): string {
   const end = new Date(start.getTime() + durationMinutes * 60_000);
   const uid = `${start.getTime()}-${Math.random().toString(36).slice(2)}@date-invitation`;
 

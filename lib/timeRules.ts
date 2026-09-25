@@ -9,3 +9,7 @@ export const WEEKEND_END_MINUTES = 22 * 60; // 22:00
 export const SLOT_STEP_MINUTES = 30;
 
 export const MAX_DAYS_AHEAD = 60;
+
+// How long a date is assumed to last — used both for the .ics event length
+// and to decide when a saved-in-progress session has expired.
+export const DATE_DURATION_MINUTES = 120;
