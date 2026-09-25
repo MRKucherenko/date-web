@@ -35,17 +35,13 @@ interface ContentShape {
   name: {
     question: string;
     placeholder: string;
+    instagramPlaceholder: string;
     submit: string;
   };
   final: {
     heading: string;
     summaryName: string;
     summaryWhen: string;
-    statusSending: string;
-    statusSent: string;
-    statusSkipped: string;
-    statusError: string;
-    sendAgain: string;
     countdownTemplate: string;
     countdownArrived: string;
     addToCalendar: string;
@@ -86,17 +82,13 @@ export const content: Record<Lang, ContentShape> = {
     name: {
       question: "What's your name? 💕",
       placeholder: "Your name",
+      instagramPlaceholder: "@username",
       submit: "Done 🎉",
     },
     final: {
       heading: "Yay! 🎉",
       summaryName: "{name}, you picked",
       summaryWhen: "{date} at {time}",
-      statusSending: "Sending the message...",
-      statusSent: "Done, the email is on its way ✉️",
-      statusSkipped: "Yay! (email isn't set up yet)",
-      statusError: "Couldn't send the email — please try again.",
-      sendAgain: "Send again ↻",
       countdownTemplate: "{parts} left",
       countdownArrived: "It's happening today! 💕",
       addToCalendar: "Add to calendar 📅",
@@ -135,17 +127,13 @@ export const content: Record<Lang, ContentShape> = {
     name: {
       question: "Как тебя зовут? 💕",
       placeholder: "Твоё имя",
+      instagramPlaceholder: "@ник",
       submit: "Готово 🎉",
     },
     final: {
       heading: "Ураа! 🎉",
       summaryName: "{name}, ты выбрала",
       summaryWhen: "{date} в {time}",
-      statusSending: "Отправляю сообщение...",
-      statusSent: "Готово, письмо уже отправлено ✉️",
-      statusSkipped: "Ура! (письмо пока не настроено)",
-      statusError: "Не удалось отправить письмо — попробуй ещё раз.",
-      sendAgain: "Отправить снова ↻",
       countdownTemplate: "Осталось: {parts}",
       countdownArrived: "Этот день настал! 💕",
       addToCalendar: "Добавить в календарь 📅",

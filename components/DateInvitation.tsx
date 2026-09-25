@@ -46,6 +46,7 @@ export default function DateInvitation() {
     date: "",
     time: "",
     name: "",
+    instagram: "",
   });
   // Lifted above StepFinal so that navigating back to it (via the Back
   // button) and forward again doesn't silently fire a second real email —
@@ -116,8 +117,10 @@ export default function DateInvitation() {
             {step === STEP_NAME && (
               <motion.div key="name" {...stepTransition}>
                 <StepName
-                  value={form.name}
-                  onChange={(name) => setForm((f) => ({ ...f, name }))}
+                  name={form.name}
+                  instagram={form.instagram}
+                  onNameChange={(name) => setForm((f) => ({ ...f, name }))}
+                  onInstagramChange={(instagram) => setForm((f) => ({ ...f, instagram }))}
                   onNext={next}
                 />
               </motion.div>

@@ -14,6 +14,7 @@ export interface DateFormData {
   date: string;
   time: string;
   name: string;
+  instagram: string;
 }
 
 export const ACTIVITY_IDS: Activity[] = [

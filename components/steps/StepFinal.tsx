@@ -1,10 +1,9 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { getActivityLabel } from "@/lib/types";
 import type { DateFormData } from "@/lib/types";
 import { sendEmail } from "@/lib/sendEmail";
-import type { SendResult } from "@/lib/sendEmail";
 import { interpolate } from "@/lib/content";
 import { useLanguage } from "@/lib/LanguageContext";
 import ConfettiHearts from "@/components/ui/ConfettiHearts";
@@ -19,29 +18,20 @@ interface Props {
   onEmailSend: (record: EmailSendRecord) => void;
 }
 
-type Status = "sending" | SendResult;
-
 export default function StepFinal({ data, emailSend, onEmailSend }: Props) {
   const { t } = useLanguage();
   const key = useMemo(() => JSON.stringify(data), [data]);
-  const [status, setStatus] = useState<Status>(
-    emailSend?.key === key ? emailSend.status : "sending"
-  );
   const target = useMemo(() => combineDateAndTime(data.date, data.time), [data.date, data.time]);
 
   useEffect(() => {
     // The Back button lets you return here after already sending for the
     // exact same answers (e.g. Back then forward again without changing
-    // anything) — the lazy useState above already picked up that cached
-    // result, so just skip firing a second real email.
+    // anything) — skip firing a second real email in that case.
     if (emailSend?.key === key) return;
 
-    // No cached result for this key — the lazy useState above already
-    // defaulted to "sending" for this case.
     let cancelled = false;
     sendEmail(data).then((result) => {
       if (cancelled) return;
-      setStatus(result);
       onEmailSend({ key, status: result });
     });
     return () => {
@@ -49,16 +39,6 @@ export default function StepFinal({ data, emailSend, onEmailSend }: Props) {
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [key]);
-
-  function handleRetry() {
-    // Button that triggers this unmounts while status is "sending" (see below),
-    // so a second click can't fire a second request.
-    setStatus("sending");
-    sendEmail(data).then((result) => {
-      setStatus(result);
-      onEmailSend({ key, status: result });
-    });
-  }
 
   function handleAddToCalendar() {
     const ics = buildICS({
@@ -89,23 +69,6 @@ export default function StepFinal({ data, emailSend, onEmailSend }: Props) {
       >
         {t.final.addToCalendar}
       </button>
-
-      <p className="text-sm text-gray-400">
-        {status === "sending" && t.final.statusSending}
-        {status === "sent" && t.final.statusSent}
-        {status === "skipped" && t.final.statusSkipped}
-        {status === "error" && t.final.statusError}
-      </p>
-
-      {status === "error" && (
-        <button
-          type="button"
-          onClick={handleRetry}
-          className="min-h-11 rounded-full bg-rose-500 px-6 py-2 text-sm font-semibold text-white shadow-md shadow-rose-300 hover:bg-rose-600"
-        >
-          {t.final.sendAgain}
-        </button>
-      )}
     </div>
   );
 }
