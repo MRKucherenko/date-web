@@ -37,7 +37,7 @@ export async function sendEmail(data: DateFormData): Promise<SendResult> {
   }
 
   try {
-    // Template variables: email, date_type, when, instagram.
+    // Template variables: email, date_type, when, instagram, name.
     await emailjs.send(
       SERVICE_ID,
       TEMPLATE_ID,
@@ -48,6 +48,7 @@ export async function sendEmail(data: DateFormData): Promise<SendResult> {
           : content.en.common.unset,
         when: formatWhen(data.date, data.time),
         instagram: data.instagram,
+        name: data.name,
       },
       { publicKey: PUBLIC_KEY }
     );
