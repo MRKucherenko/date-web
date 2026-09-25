@@ -35,6 +35,7 @@ interface ContentShape {
   name: {
     question: string;
     placeholder: string;
+    instagramLabel: string;
     instagramPlaceholder: string;
     submit: string;
   };
@@ -82,6 +83,7 @@ export const content: Record<Lang, ContentShape> = {
     name: {
       question: "What's your name? 💕",
       placeholder: "Your name",
+      instagramLabel: "Your Instagram 📸",
       instagramPlaceholder: "@username",
       submit: "Done 🎉",
     },
@@ -127,6 +129,7 @@ export const content: Record<Lang, ContentShape> = {
     name: {
       question: "Как тебя зовут? 💕",
       placeholder: "Твоё имя",
+      instagramLabel: "Твой Instagram 📸",
       instagramPlaceholder: "@ник",
       submit: "Готово 🎉",
     },

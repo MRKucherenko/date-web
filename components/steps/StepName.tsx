@@ -46,14 +46,17 @@ export default function StepName({
           className="min-h-11 w-full rounded-xl border border-rose-200 px-4 py-3 text-center text-lg text-gray-700 outline-none focus:border-rose-400"
         />
 
-        <input
-          type="text"
-          value={instagram}
-          onChange={(e) => onInstagramChange(sanitizeInstagram(e.target.value))}
-          onBlur={(e) => onInstagramChange(sanitizeInstagram(e.target.value, { final: true }))}
-          placeholder={t.name.instagramPlaceholder}
-          className="min-h-11 w-full rounded-xl border border-rose-200 px-4 py-3 text-center text-lg text-gray-700 outline-none focus:border-rose-400"
-        />
+        <label className="flex flex-col gap-1 text-left text-sm text-gray-500">
+          {t.name.instagramLabel}
+          <input
+            type="text"
+            value={instagram}
+            onChange={(e) => onInstagramChange(sanitizeInstagram(e.target.value))}
+            onBlur={(e) => onInstagramChange(sanitizeInstagram(e.target.value, { final: true }))}
+            placeholder={t.name.instagramPlaceholder}
+            className="min-h-11 w-full rounded-xl border border-rose-200 px-4 py-3 text-center text-lg text-gray-700 outline-none focus:border-rose-400"
+          />
+        </label>
       </div>
 
       <button
