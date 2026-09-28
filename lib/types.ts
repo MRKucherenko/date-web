@@ -3,12 +3,13 @@ import type { SendResult } from "./sendEmail";
 
 export type Activity =
   | "cinema"
-  | "cafe"
+  | "breakfast"
   | "walk"
   | "dinner"
   | "bowling"
   | "exhibition"
-  | "coffee";
+  | "coffee"
+  | "drinks";
 
 export interface DateFormData {
   place: Activity | null;
@@ -25,22 +26,24 @@ export interface EmailSendRecord {
 
 export const ACTIVITY_IDS: Activity[] = [
   "cinema",
-  "cafe",
+  "breakfast",
   "walk",
   "dinner",
   "bowling",
   "exhibition",
   "coffee",
+  "drinks",
 ];
 
 export const ACTIVITY_EMOJI: Record<Activity, string> = {
   cinema: "🎬",
-  cafe: "🍰",
+  breakfast: "🥞",
   walk: "🚶",
   dinner: "🍽️",
   bowling: "🎳",
   exhibition: "🖼️",
   coffee: "☕",
+  drinks: "🍸",
 };
 
 export function getActivityLabel(

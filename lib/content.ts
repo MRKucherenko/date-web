@@ -67,12 +67,13 @@ export const content: Record<Lang, ContentShape> = {
       question: "Where should we go? 🌹",
       options: {
         cinema: { label: "Cinema", hint: "Movie night" },
-        cafe: { label: "Café", hint: "Sit down & talk" },
+        breakfast: { label: "Breakfast", hint: "Start the day together" },
         walk: { label: "Walk", hint: "Stroll together" },
         dinner: { label: "Dinner", hint: "A proper meal" },
         bowling: { label: "Bowling", hint: "Game night" },
         exhibition: { label: "Exhibition", hint: "Art & culture" },
         coffee: { label: "Coffee", hint: "Quick catch-up" },
+        drinks: { label: "Drinks", hint: "Evening cocktails" },
       },
     },
     datetime: {
@@ -113,12 +114,13 @@ export const content: Record<Lang, ContentShape> = {
       question: "Куда сходим? 🌹",
       options: {
         cinema: { label: "Кино", hint: "Вечер в кинотеатре" },
-        cafe: { label: "Кафе", hint: "Посидеть подольше" },
+        breakfast: { label: "Завтрак", hint: "Начать день вместе" },
         walk: { label: "Прогулка", hint: "Погулять вместе" },
         dinner: { label: "Ужин", hint: "Полноценно поесть" },
         bowling: { label: "Боулинг", hint: "Игровой вечер" },
         exhibition: { label: "Выставка", hint: "Искусство и культура" },
         coffee: { label: "Кофе", hint: "Быстрая встреча" },
+        drinks: { label: "Напитки", hint: "Вечерние коктейли" },
       },
     },
     datetime: {
